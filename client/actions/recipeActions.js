@@ -13,3 +13,9 @@ export function removeProduct(id) {
         id
     }
 }
+
+export function calculateTotal() {
+    return {
+        type: 'SUM_TOTAL'
+    }
+}

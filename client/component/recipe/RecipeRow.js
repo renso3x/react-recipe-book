@@ -13,4 +13,10 @@ const RecipeRow = ({
     </a>
 )
 
+RecipeRow.propTypes = {
+    product: React.PropTypes.string,
+    price: React.PropTypes.string,
+    onClick: React.PropTypes.func,
+}
+
 export default RecipeRow;

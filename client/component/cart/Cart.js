@@ -1,4 +1,6 @@
 import React from 'react';
+import createFragment from 'react-addons-create-fragment';
+
 import { connect } from 'react-redux';
 
 import { removeProduct } from '../../actions/recipeActions';
@@ -7,7 +9,7 @@ import CartList from './CartList';
 
 const mapStateToProps = (state) => {
     return {
-        cart: state.cart,
+        cart: state.cart
     }
 }
 

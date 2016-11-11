@@ -25,5 +25,10 @@ const RecipeList = ({
     </div>
 )
 
+RecipeList.propTypes = {
+    products: React.PropTypes.array,
+    addToCart: React.PropTypes.func
+};
+
 
 export default RecipeList;
