@@ -14,8 +14,11 @@ export function removeProduct(id) {
     }
 }
 
-export function calculateTotal() {
+export function updateProduct(product, index) {
     return {
-        type: 'SUM_TOTAL'
+        type: 'UPDATE_PRODUCT_NAME',
+        product,
+        index
     }
 }
+

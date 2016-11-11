@@ -6,7 +6,7 @@ const CartRow = ({
     onClick
 }) => (
     <li class="list-group-item">
-        <a class="badge" onClick={onClick} >x</a>
+        <a class="badge" onClick={onClick}>x</a>
         <span class="badge">{price}</span>
         {product}
     </li>

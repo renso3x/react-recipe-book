@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addToCart } from '../../actions/recipeActions';
+import { addToCart, updateProduct } from '../../actions/recipeActions';
 
 import RecipeList from './RecipeList';
 
@@ -15,6 +15,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addToCart: (product) => {
             dispatch(addToCart(product))
+        },
+        updateProduct: (product, index) => {
+            dispatch(updateProduct(product, index));
         }
     }
 };

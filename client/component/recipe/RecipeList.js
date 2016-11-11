@@ -4,19 +4,23 @@ import RecipeRow from './RecipeRow';
 
 const RecipeList = ({
     products,
-    addToCart
+    addToCart,
+    updateProduct
 }) => (
     <div class="col-md-6">
         <h2>List of Products </h2>
         <div class="list-group">
             {
-                products.map(product =>
+                products.map((product, i) =>
                     <RecipeRow
-                        key={product.id}
+                        key={i}
                         {...product}
                         onClick={(e) => {
                             e.preventDefault();
                             addToCart(product);
+                        }}
+                        onUpdate={(product) => {
+                            updateProduct(product, i);
                         }}
                     />
                 )
@@ -29,6 +33,5 @@ RecipeList.propTypes = {
     products: React.PropTypes.array,
     addToCart: React.PropTypes.func
 };
-
 
 export default RecipeList;
