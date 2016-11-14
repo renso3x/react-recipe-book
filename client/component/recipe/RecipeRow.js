@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import EditForm from './EditForm';
 
@@ -26,7 +27,7 @@ class RecipeRow extends React.Component {
     }
 
     render() {
-        const { product, price, onClick } = this.props;
+        const { product, price, onClick,id } = this.props;
 
         return (
             <div class="list-group-item">
@@ -38,10 +39,10 @@ class RecipeRow extends React.Component {
                             onClick={this.onCancelEdit}
                         /> :
                         <div>
-                            <a href="#">
+                            <Link to={`/product/${id}`}>
                                 <h4 class="list-group-item-heading">{product}</h4>
                                 <p class="list-group-item-text">{price}</p>
-                            </a>
+                            </Link>
                             <button class="btn btn-info" onClick={this.onEdit}> Edit </button>
                             <button class="btn btn-success" onClick={onClick}> Add To Cart</button>
                         </div>

@@ -1,23 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router, Route, IndexRoute, Link } from 'react-router';
 
-import store from './store';
+import store, { history } from './store';
 
-import Cart from './component/cart/Cart';
+import App from './app';
+import RecipeLayout from './component/recipe/RecipeLayout';
 import Recipe from './component/recipe/Recipe';
 
 const MainLayout = () => (
-    <div class="container">
-        <Recipe />
-        <Cart />
-    </div>
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute name="recipes" component={RecipeLayout} />
+                <Route path="product/:prodId" name="recipe" component={Recipe} />
+            </Route>
+        </Router>
+    </Provider>
 )
 
-render(
-    <Provider store={store}>
-        <MainLayout/>
-    </Provider>,
-    document.getElementById('root')
-)
+render(<MainLayout />, document.getElementById('root'))
 

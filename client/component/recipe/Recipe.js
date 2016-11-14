@@ -1,31 +1,26 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import { addToCart, updateProduct } from '../../actions/recipeActions';
-
-import RecipeList from './RecipeList';
-
-const mapStateToProps = (state) => {
-    return {
-        products: state.products
+class Recipe extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { product: []};
     }
-};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (product) => {
-            dispatch(addToCart(product))
-        },
-        updateProduct: (product, index) => {
-            dispatch(updateProduct(product, index));
-        }
+    componentDidMount() {
+        const index= this.props.products.findIndex((prod) => prod.id == this.props.params.prodId);
+        this.setState({
+            product: this.props.products[index]
+        });
     }
-};
 
-const Recipe = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(RecipeList);
-
+    render() {
+        const { product } = this.state;
+        return (
+            <div class="container">
+                <h2>{product.product}</h2>
+                <h4 class="list-group-item-heading">{product.price}</h4>
+            </div>
+        )
+    }
+}
 export default Recipe;
-

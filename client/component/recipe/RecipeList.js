@@ -14,6 +14,7 @@ const RecipeList = ({
                 products.map((product, i) =>
                     <RecipeRow
                         key={i}
+                        id={product.id}
                         {...product}
                         onClick={(e) => {
                             e.preventDefault();
