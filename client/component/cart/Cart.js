@@ -13,9 +13,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (
-    dispatch
-) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         removeProduct: (id) => {
             dispatch(removeProduct(id))
